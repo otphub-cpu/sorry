@@ -1,0 +1,2018 @@
+/* ==========================================================================
+   DORAEMON CARTOON THEME — 4D GADGET & OTP HUB
+   Vibrant, playful cartoon aesthetics, bouncy tactile micro-interactions,
+   iconic Doraemon blue, bell yellow, collar red, and 4D pocket styling.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700;800;900&family=Nunito:wght@400;600;700;800;900&display=swap');
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+    /* --- Doraemon Iconic Palette --- */
+    --dora-blue: #009fe8;
+    --dora-blue-dark: #0077b6;
+    --dora-blue-deep: #023e8a;
+    --dora-blue-light: #e8f5fe;
+    --dora-blue-sky: #bde0fe;
+
+    --dora-red: #ff3344;
+    --dora-red-dark: #d62030;
+    --dora-red-light: #ffebee;
+
+    --dora-yellow: #ffcc00;
+    --dora-yellow-dark: #e5b300;
+    --dora-yellow-light: #fff9c4;
+
+    --dora-white: #ffffff;
+    --dora-pink: #ff65a3;
+    --dora-pink-light: #ffe4f0;
+    --dora-green: #38b000;
+    --dora-green-light: #eafaf1;
+
+    /* Theme Tokens mapped to dashboard elements */
+    --bg: #eef6fd;
+    --bg2: #f4f9ff;
+    --bg3: #e8f3fd;
+    --bg-card: #ffffff;
+    --bg-card-solid: #ffffff;
+    --bg-elevated: #f4f9ff;
+    --bg-input: #ffffff;
+    --border: #cde4fa;
+    --border-focus: #009fe8;
+
+    --text: #16324f;
+    --text-2: #3a5d7c;
+    --text-3: #7e9bb5;
+
+    --green: #2eb85c;
+    --green-dim: rgba(46, 184, 92, 0.12);
+    --blue: #009fe8;
+    --blue-dim: rgba(0, 159, 232, 0.12);
+    --red: #ff3344;
+    --red-dim: rgba(255, 51, 68, 0.12);
+    --orange: #ff922b;
+    --purple: #9c36b5;
+    --teal: #00a896;
+    --cyan: #00a896;
+    --magenta: #ff65a3;
+
+    /* Cartoon Curves */
+    --r-xs: 10px;
+    --r-sm: 16px;
+    --r-md: 22px;
+    --r-lg: 28px;
+    --r-xl: 36px;
+    --r-pill: 9999px;
+
+    --safe-top: env(safe-area-inset-top, 0px);
+    --safe-bottom: env(safe-area-inset-bottom, 0px);
+
+    --nav-height: 74px;
+    --header-height: 105px;
+    --status-height: 30px;
+    
+    /* Playful Cartoon Shadows */
+    --shadow-subtle: 0 4px 12px rgba(0, 159, 232, 0.08);
+    --shadow-card: 0 8px 24px rgba(0, 159, 232, 0.11), 0 2px 6px rgba(22, 50, 79, 0.04);
+    --shadow-hover: 0 12px 30px rgba(0, 159, 232, 0.18), 0 4px 8px rgba(22, 50, 79, 0.06);
+    --shadow-pop: 0 16px 36px rgba(0, 119, 182, 0.22);
+    --shadow-3d-btn: 0 4px 0 #0077b6;
+    --shadow-3d-btn-active: 0 1px 0 #0077b6;
+    --shadow-bell: 0 4px 0 #d49b00;
+}
+
+html {
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overscroll-behavior: none;
+}
+
+body {
+    font-family: 'Fredoka', 'Nunito', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow: hidden;
+    position: relative;
+    max-width: 100vw;
+    background-image: 
+        radial-gradient(circle at 15% 15%, rgba(0, 159, 232, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 85% 80%, rgba(255, 204, 0, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 50% 50%, rgba(255, 51, 68, 0.05) 0%, transparent 50%),
+        linear-gradient(180deg, #dcf0fd 0%, #edf6fe 40%, #f7fbff 100%);
+}
+
+/* ==========================================================================
+   AMBIENT BACKGROUND — Cartoon Clouds & Floating Doraemon Elements
+   ========================================================================== */
+.ambient-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+/* Floating animated cartoon clouds */
+.ambient-bg::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle 38px at 70px 60px, rgba(255, 255, 255, 0.65) 100%, transparent 100%),
+        radial-gradient(circle 52px at 110px 50px, rgba(255, 255, 255, 0.7) 100%, transparent 100%),
+        radial-gradient(circle 36px at 150px 60px, rgba(255, 255, 255, 0.65) 100%, transparent 100%),
+        radial-gradient(circle 30px at 320px 180px, rgba(255, 255, 255, 0.5) 100%, transparent 100%),
+        radial-gradient(circle 44px at 355px 170px, rgba(255, 255, 255, 0.55) 100%, transparent 100%),
+        radial-gradient(circle 32px at 390px 180px, rgba(255, 255, 255, 0.5) 100%, transparent 100%),
+        radial-gradient(circle 28px at 580px 100px, rgba(255, 255, 255, 0.6) 100%, transparent 100%),
+        radial-gradient(circle 42px at 615px 90px, rgba(255, 255, 255, 0.65) 100%, transparent 100%),
+        radial-gradient(circle 30px at 650px 100px, rgba(255, 255, 255, 0.6) 100%, transparent 100%);
+    background-repeat: repeat-x;
+    animation: floatClouds 55s linear infinite;
+    top: 0;
+    left: 0;
+}
+
+.ambient-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(0, 159, 232, 0.08) 1.5px, transparent 1.5px);
+    background-size: 24px 24px;
+    opacity: 0.7;
+}
+
+@keyframes floatClouds {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(50px);
+    opacity: 0.45;
+    pointer-events: none;
+}
+
+.orb-1 {
+    width: 220px;
+    height: 220px;
+    background: #009fe8;
+    top: -40px;
+    right: -40px;
+    animation: orbBob 8s ease-in-out infinite alternate;
+}
+
+.orb-2 {
+    width: 180px;
+    height: 180px;
+    background: #ffcc00;
+    bottom: 90px;
+    left: -30px;
+    animation: orbBob 10s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes orbBob {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(15px, 20px) scale(1.1); }
+}
+
+/* ==========================================================================
+   STATUS BAR
+   ========================================================================== */
+.status-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 18px;
+    padding-top: calc(6px + var(--safe-top));
+    height: calc(var(--status-height) + var(--safe-top));
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-2);
+    border-bottom: 2px solid rgba(0, 159, 232, 0.2);
+    box-shadow: 0 2px 10px rgba(0, 159, 232, 0.06);
+}
+
+.status-bar-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--dora-green);
+    border: 2px solid #ffffff;
+    box-shadow: 0 0 0 2px var(--dora-green);
+    animation: bellPulse 2s ease-in-out infinite;
+}
+
+.status-dot.loading {
+    background: var(--dora-yellow);
+    box-shadow: 0 0 0 2px var(--dora-yellow);
+}
+
+.status-dot.error {
+    background: var(--dora-red);
+    box-shadow: 0 0 0 2px var(--dora-red);
+    animation: none;
+}
+
+@keyframes bellPulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.15); opacity: 0.85; }
+}
+
+.status-bar-right {
+    font-weight: 800;
+    font-family: 'Fredoka', sans-serif;
+    color: var(--dora-blue-dark);
+    letter-spacing: 0.03em;
+    background: var(--dora-blue-light);
+    padding: 2px 10px;
+    border-radius: var(--r-pill);
+    border: 1px solid rgba(0, 159, 232, 0.25);
+}
+
+/* ==========================================================================
+   APP HEADER — Doraemon Face, Red Collar Stripe & Golden Bell
+   ========================================================================== */
+.app-header {
+    position: fixed;
+    top: calc(var(--status-height) + var(--safe-top));
+    left: 0;
+    right: 0;
+    z-index: 90;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px 14px;
+    background: #ffffff;
+    border-bottom: 4px solid var(--dora-red);
+    box-shadow: 0 6px 20px rgba(0, 159, 232, 0.12);
+}
+
+/* Red Collar stripe decoration with golden bell accent */
+.app-header::after {
+    content: '🔔';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 16px;
+    width: 26px;
+    height: 26px;
+    background: var(--dora-yellow);
+    border: 2px solid #b28500;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    z-index: 95;
+    line-height: 1;
+    animation: bellRing 3.5s ease-in-out infinite;
+}
+
+@keyframes bellRing {
+    0%, 80%, 100% { transform: translateX(-50%) rotate(0deg); }
+    85% { transform: translateX(-50%) rotate(-12deg); }
+    90% { transform: translateX(-50%) rotate(12deg); }
+    95% { transform: translateX(-50%) rotate(-8deg); }
+}
+
+.header-logo {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--dora-blue);
+    border: 3px solid #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 159, 232, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.header-logo:hover, .header-logo:active {
+    transform: scale(1.08) rotate(5deg);
+}
+
+.header-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.header-info h1 {
+    font-size: 1.35rem;
+    font-weight: 900;
+    letter-spacing: -0.01em;
+    color: var(--dora-blue-dark);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-shadow: 0 1px 2px rgba(0, 119, 182, 0.15);
+    line-height: 1.2;
+}
+
+.header-info p {
+    font-size: 0.68rem;
+    color: var(--dora-red);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    display: inline-block;
+    background: var(--dora-red-light);
+    padding: 1px 7px;
+    border-radius: var(--r-pill);
+    margin-top: 2px;
+}
+
+/* Logout Button — Doraemon Door style */
+.header-actions {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logout-btn {
+    background: var(--dora-red-light);
+    border: 2px solid var(--dora-red);
+    border-radius: var(--r-sm);
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--dora-red);
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 3px 0 var(--dora-red-dark);
+}
+
+.logout-btn:active {
+    transform: translateY(3px);
+    box-shadow: 0 0 0 var(--dora-red-dark);
+    background: var(--dora-red);
+    color: #ffffff;
+}
+
+/* ==========================================================================
+   MAIN CONTENT AREA (Scrollable)
+   ========================================================================== */
+.main-content {
+    position: fixed;
+    top: calc(var(--status-height) + var(--safe-top) + 68px);
+    left: 0;
+    right: 0;
+    bottom: calc(var(--nav-height) + var(--safe-bottom));
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    z-index: 1;
+    padding: 16px 14px 28px;
+    scroll-behavior: smooth;
+}
+
+.tab-panel {
+    display: none;
+}
+
+.tab-panel.active {
+    display: block;
+    animation: cartoonBounceUp 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes cartoonBounceUp {
+    0% { opacity: 0; transform: translateY(16px) scale(0.97); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ==========================================================================
+   STATS ROW — Rounded Doraemon Badges
+   ========================================================================== */
+.stats-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.stat-chip {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    padding: 11px 8px;
+    background: #ffffff;
+    border: 2px solid var(--border);
+    border-radius: var(--r-md);
+    box-shadow: var(--shadow-card);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s;
+}
+
+.stat-chip::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--dora-blue);
+    border-radius: 4px 4px 0 0;
+}
+
+.stat-chip.stat-green::before {
+    background: var(--dora-green);
+}
+
+.stat-chip.stat-red::before {
+    background: var(--dora-red);
+}
+
+.stat-value {
+    font-size: 1.45rem;
+    font-weight: 900;
+    color: var(--dora-blue-dark);
+    font-variant-numeric: tabular-nums;
+    line-height: 1.1;
+    font-family: 'Fredoka', sans-serif;
+}
+
+.stat-label {
+    font-size: 0.65rem;
+    font-weight: 800;
+    color: var(--text-3);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.stat-green .stat-value { color: var(--dora-green); }
+.stat-red .stat-value { color: var(--dora-red); }
+
+/* ==========================================================================
+   SEARCH BAR — Cute Comic Capsule
+   ========================================================================== */
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    background: #ffffff;
+    border: 2.5px solid var(--border);
+    border-radius: var(--r-pill);
+    margin-bottom: 12px;
+    transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: var(--shadow-card);
+}
+
+.search-bar:focus-within {
+    border-color: var(--dora-blue);
+    box-shadow: 0 0 0 4px var(--dora-blue-light), var(--shadow-hover);
+    transform: translateY(-1px);
+}
+
+.search-bar svg {
+    flex-shrink: 0;
+    color: var(--dora-blue);
+}
+
+.search-bar input {
+    flex: 1;
+    border: none;
+    background: none;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 0.92rem;
+    font-weight: 600;
+    outline: none;
+}
+
+.search-bar input::placeholder {
+    color: var(--text-3);
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   FILTER ROW — Dorayaki Style Pill Buttons
+   ========================================================================== */
+.filter-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.pill {
+    flex: 1;
+    padding: 9px 0;
+    text-align: center;
+    border: 2px solid var(--border);
+    background: #ffffff;
+    color: var(--text-2);
+    border-radius: var(--r-pill);
+    font-family: inherit;
+    font-size: 0.82rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 3px 0 var(--border);
+}
+
+.pill:active {
+    transform: translateY(2px);
+    box-shadow: 0 1px 0 var(--border);
+}
+
+.pill.active {
+    background: var(--dora-blue);
+    color: #ffffff;
+    border-color: var(--dora-blue-dark);
+    box-shadow: 0 3px 0 var(--dora-blue-dark);
+}
+
+/* ==========================================================================
+   ACTION BUTTONS — Tactile 3D Cartoon Buttons
+   ========================================================================== */
+.action-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+}
+
+.action-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 16px;
+    border: 2px solid var(--border);
+    border-radius: var(--r-sm);
+    font-family: inherit;
+    font-size: 0.82rem;
+    font-weight: 800;
+    cursor: pointer;
+    background: #ffffff;
+    color: var(--dora-blue-dark);
+    transition: all 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+    white-space: nowrap;
+    box-shadow: 0 3px 0 var(--border);
+}
+
+.action-btn:hover {
+    border-color: var(--dora-blue);
+}
+
+.action-btn:active {
+    transform: translateY(3px);
+    box-shadow: 0 0 0 transparent;
+}
+
+.action-btn:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    box-shadow: none;
+}
+
+/* Primary Button — Doraemon Yellow Bell Style */
+.action-primary {
+    background: var(--dora-yellow);
+    color: #573a00;
+    border: 2px solid var(--dora-yellow-dark);
+    box-shadow: 0 3px 0 var(--dora-yellow-dark);
+}
+
+.action-primary:active {
+    box-shadow: 0 0 0 transparent;
+    background: #f0be00;
+}
+
+/* Red Button — Doraemon Collar Red */
+.action-red {
+    background: var(--dora-red);
+    color: #ffffff;
+    border: 2px solid var(--dora-red-dark);
+    box-shadow: 0 3px 0 var(--dora-red-dark);
+}
+
+.action-red:active {
+    box-shadow: 0 0 0 transparent;
+    background: var(--dora-red-dark);
+}
+
+.action-btn svg {
+    flex-shrink: 0;
+}
+
+/* Checkbox Toggle Pill */
+.toggle-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    background: #ffffff;
+    border: 2px solid var(--border);
+    border-radius: var(--r-pill);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-2);
+    cursor: pointer;
+    box-shadow: 0 2px 0 var(--border);
+}
+
+.toggle-pill input {
+    accent-color: var(--dora-blue);
+    width: 17px;
+    height: 17px;
+}
+
+/* ==========================================================================
+   DEVICE CARDS — 4D Pocket Style Cards
+   ========================================================================== */
+.device-list, .sms-list, .cards-list, .bank-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.device-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    background: #ffffff;
+    border: 2px solid var(--border);
+    border-radius: var(--r-md);
+    transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+    box-shadow: var(--shadow-card);
+    position: relative;
+    overflow: hidden;
+}
+
+/* 4D Pocket Arc on top of each card */
+.device-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20px;
+    width: 48px;
+    height: 6px;
+    background: var(--dora-blue-sky);
+    border-radius: 0 0 12px 12px;
+    opacity: 0.6;
+}
+
+.device-card:hover {
+    border-color: var(--dora-blue);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+.device-card:active {
+    transform: scale(0.98);
+}
+
+.device-card.selected {
+    border-color: var(--dora-blue);
+    background: var(--dora-blue-light);
+    box-shadow: 0 0 0 3px rgba(0, 159, 232, 0.25), var(--shadow-hover);
+}
+
+.device-card.muted-card {
+    opacity: 0.65;
+    background: #f9fbfd;
+}
+
+.device-card .dc-check {
+    width: 22px;
+    height: 22px;
+    accent-color: var(--dora-blue);
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+.device-card .dc-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    background: var(--dora-blue-light);
+    border: 2px solid rgba(0, 159, 232, 0.3);
+    border-radius: var(--r-sm);
+    color: var(--dora-blue);
+    flex-shrink: 0;
+    box-shadow: 0 2px 6px rgba(0, 159, 232, 0.15);
+}
+
+.device-card .dc-body {
+    flex: 1;
+    min-width: 0;
+}
+
+.device-card .dc-id {
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: var(--dora-blue-dark);
+    font-family: 'Fredoka', 'Nunito', monospace;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.device-card .dc-model {
+    font-size: 0.74rem;
+    color: var(--text-2);
+    font-weight: 600;
+    margin-top: 2px;
+}
+
+.device-card .dc-status {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    flex-shrink: 0;
+}
+
+.status-dot-inline {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: var(--r-pill);
+}
+
+.status-dot-inline.online {
+    color: var(--dora-green);
+    background: var(--dora-green-light);
+}
+
+.status-dot-inline.online::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--dora-green);
+    box-shadow: 0 0 6px var(--dora-green);
+}
+
+.status-dot-inline.offline {
+    color: var(--text-3);
+    background: #edf2f7;
+}
+
+.status-dot-inline.offline::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--text-3);
+}
+
+.mute-badge {
+    font-size: 0.62rem;
+    font-weight: 900;
+    padding: 2px 7px;
+    border-radius: var(--r-pill);
+    background: var(--dora-red-light);
+    color: var(--dora-red);
+    border: 1px solid rgba(255, 51, 68, 0.2);
+}
+
+/* ==========================================================================
+   SMS CARDS — Comic Speech Bubble Cards
+   ========================================================================== */
+.sms-card {
+    padding: 14px 16px;
+    background: #ffffff;
+    border: 2px solid var(--border);
+    border-radius: var(--r-md);
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: var(--shadow-card);
+    position: relative;
+}
+
+.sms-card:hover {
+    border-color: var(--dora-blue);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+.sms-card:active {
+    background: var(--dora-blue-light);
+}
+
+.sms-card.selected {
+    border-color: var(--dora-blue);
+    background: var(--dora-blue-light);
+    box-shadow: 0 0 0 3px rgba(0, 159, 232, 0.2);
+}
+
+.sms-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+
+.sms-card-sender {
+    font-size: 0.88rem;
+    font-weight: 800;
+    color: var(--dora-blue-dark);
+}
+
+.sms-card-time {
+    font-size: 0.68rem;
+    color: var(--text-3);
+    font-weight: 700;
+    background: #f1f6fc;
+    padding: 2px 8px;
+    border-radius: var(--r-pill);
+}
+
+.sms-card-device {
+    font-size: 0.68rem;
+    color: var(--dora-red);
+    font-family: inherit;
+    font-weight: 700;
+    margin-bottom: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sms-card-body {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.45;
+    word-break: break-word;
+    font-weight: 500;
+    background: #f8fbff;
+    padding: 8px 12px;
+    border-radius: var(--r-sm);
+    border: 1px dashed var(--border);
+}
+
+.sms-card-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sms-card-check input {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--dora-blue);
+}
+
+/* ==========================================================================
+   CARTOON CARDS / BANK INFO CARDS (Tab 4 & Info)
+   ========================================================================== */
+.bank-card, .credit-card {
+    padding: 16px;
+    background: #ffffff;
+    border: 2px solid var(--border);
+    border-radius: var(--r-lg);
+    box-shadow: var(--shadow-card);
+    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    cursor: pointer;
+}
+
+.bank-card:hover, .credit-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--dora-blue);
+}
+
+.bank-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+
+.bank-card-sender {
+    font-size: 0.88rem;
+    font-weight: 800;
+    color: var(--dora-blue-dark);
+}
+
+.bank-card-balance {
+    font-size: 0.95rem;
+    font-weight: 900;
+    color: var(--dora-green);
+    background: var(--dora-green-light);
+    padding: 3px 8px;
+    border-radius: var(--r-pill);
+}
+
+.bank-card-snippet {
+    font-size: 0.8rem;
+    color: var(--text-2);
+    line-height: 1.45;
+    margin-top: 6px;
+}
+
+.bank-card-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    font-size: 0.68rem;
+    color: var(--text-3);
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   SECTION HEADERS & DIVIDERS
+   ========================================================================== */
+.section-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.section-header-row h2 {
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: var(--dora-blue-dark);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.section-header-row h3 {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--text);
+}
+
+.section-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 22px 0 16px;
+}
+
+.section-divider::before,
+.section-divider::after {
+    content: '';
+    flex: 1;
+    height: 2px;
+    background: var(--border);
+    border-radius: 2px;
+}
+
+.section-divider span {
+    font-size: 0.76rem;
+    font-weight: 900;
+    color: var(--dora-blue);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+    background: var(--dora-blue-light);
+    padding: 3px 10px;
+    border-radius: var(--r-pill);
+    border: 1px solid rgba(0, 159, 232, 0.25);
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 10px;
+    background: var(--dora-yellow);
+    border-radius: var(--r-pill);
+    font-size: 0.74rem;
+    font-weight: 900;
+    color: #573a00;
+    border: 1px solid var(--dora-yellow-dark);
+    box-shadow: 0 2px 0 var(--dora-yellow-dark);
+}
+
+/* ==========================================================================
+   FORMS & INPUTS — Soft Rounded Bubbly Inputs
+   ========================================================================== */
+.form-card {
+    background: #ffffff;
+    border: 2px solid var(--border);
+    border-radius: var(--r-lg);
+    padding: 18px;
+    box-shadow: var(--shadow-card);
+    position: relative;
+}
+
+.form-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 24px;
+    width: 60px;
+    height: 6px;
+    background: var(--dora-red);
+    border-radius: 0 0 12px 12px;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.76rem;
+    font-weight: 800;
+    color: var(--text-2);
+    margin-bottom: 6px;
+    margin-top: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.form-label:first-child { margin-top: 0; }
+
+.mobile-input {
+    width: 100%;
+    padding: 12px 16px;
+    background: var(--bg-input);
+    border: 2px solid var(--border);
+    border-radius: var(--r-sm);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    outline: none;
+    transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    -webkit-appearance: none;
+    appearance: none;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.03);
+}
+
+.mobile-input:focus {
+    border-color: var(--dora-blue);
+    background: #ffffff;
+    box-shadow: 0 0 0 3px var(--dora-blue-light);
+}
+
+.mobile-input::placeholder { color: var(--text-3); }
+
+.mobile-textarea {
+    width: 100%;
+    padding: 12px 16px;
+    background: var(--bg-input);
+    border: 2px solid var(--border);
+    border-radius: var(--r-sm);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    outline: none;
+    resize: none;
+    line-height: 1.5;
+    transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    -webkit-appearance: none;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.03);
+}
+
+.mobile-textarea:focus {
+    border-color: var(--dora-blue);
+    background: #ffffff;
+    box-shadow: 0 0 0 3px var(--dora-blue-light);
+}
+
+.mobile-textarea::placeholder { color: var(--text-3); }
+
+.mobile-select {
+    width: 100%;
+    padding: 12px 16px;
+    background: var(--bg-input);
+    border: 2px solid var(--border);
+    border-radius: var(--r-sm);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 0.92rem;
+    font-weight: 700;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23009fe8' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 40px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.03);
+}
+
+.mobile-select:focus {
+    border-color: var(--dora-blue);
+    box-shadow: 0 0 0 3px var(--dora-blue-light);
+}
+
+/* SIM Toggle */
+.sim-toggle {
+    display: flex;
+    gap: 4px;
+    background: #eef6fd;
+    border-radius: var(--r-pill);
+    padding: 4px;
+    border: 2px solid var(--border);
+}
+
+.sim-sm { flex: 1; }
+
+.sim-btn {
+    flex: 1;
+    padding: 10px 0;
+    border: none;
+    background: transparent;
+    color: var(--text-2);
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 800;
+    cursor: pointer;
+    border-radius: var(--r-pill);
+    transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.sim-btn:active { transform: scale(0.96); }
+
+.sim-btn.active {
+    background: var(--dora-blue);
+    color: #ffffff;
+    box-shadow: 0 3px 8px rgba(0, 159, 232, 0.35);
+}
+
+/* ==========================================================================
+   LAUNCH BUTTON (SMS Bomber Launch)
+   ========================================================================== */
+.launch-btn {
+    width: 100%;
+    padding: 16px 20px;
+    margin-top: 18px;
+    background: linear-gradient(135deg, var(--dora-yellow), #ffb703);
+    color: #573a00;
+    font-family: inherit;
+    font-size: 1.05rem;
+    font-weight: 900;
+    border: 3px solid #d49b00;
+    border-radius: var(--r-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    letter-spacing: 0.03em;
+    box-shadow: 0 5px 0 #b38200, 0 10px 24px rgba(255, 183, 3, 0.3);
+    transition: all 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.launch-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 0 #b38200, 0 12px 28px rgba(255, 183, 3, 0.4);
+}
+
+.launch-btn:active {
+    transform: translateY(4px);
+    box-shadow: 0 1px 0 #b38200;
+}
+
+.launch-btn:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    box-shadow: none;
+}
+
+/* Progress Track */
+.progress-section {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 2px dashed var(--border);
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: var(--dora-blue-dark);
+}
+
+.progress-track {
+    height: 10px;
+    background: #e1f0fe;
+    border-radius: var(--r-pill);
+    overflow: hidden;
+    border: 2px solid var(--border);
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--dora-blue), var(--dora-yellow));
+    border-radius: var(--r-pill);
+    transition: width 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 14px 0;
+}
+
+.page-btn {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--border);
+    background: #ffffff;
+    color: var(--dora-blue-dark);
+    border-radius: 50%;
+    font-size: 1.2rem;
+    font-weight: 900;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 3px 0 var(--border);
+}
+
+.page-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 1px 0 var(--border);
+}
+
+.page-btn:disabled {
+    opacity: 0.3;
+    pointer-events: none;
+    box-shadow: none;
+}
+
+.page-info {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: var(--text-2);
+}
+
+/* ==========================================================================
+   SMS BOMBER — Doraemon Air Cannon Gadget Styling
+   ========================================================================== */
+.bomber-hero {
+    text-align: center;
+    padding: 24px 16px 20px;
+    margin-bottom: 14px;
+    background: #ffffff;
+    border: 2px solid var(--border);
+    border-radius: var(--r-xl);
+    box-shadow: var(--shadow-card);
+    position: relative;
+    overflow: hidden;
+}
+
+.bomber-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--dora-blue), var(--dora-red), var(--dora-yellow));
+}
+
+.bomber-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 68px;
+    height: 68px;
+    background: linear-gradient(135deg, var(--dora-red), #ff6b8b);
+    border-radius: 22px;
+    margin-bottom: 12px;
+    color: white;
+    border: 3px solid #ffffff;
+    box-shadow: 0 6px 20px rgba(255, 51, 68, 0.35);
+    animation: cartoonPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes cartoonPulse {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.06) rotate(3deg); }
+}
+
+.bomber-hero h2 {
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: var(--dora-blue-dark);
+    margin-bottom: 3px;
+}
+
+.bomber-hero p {
+    font-size: 0.76rem;
+    color: var(--text-3);
+    font-weight: 600;
+}
+
+.bomber-stats {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.mode-toggle {
+    display: flex;
+    background: #eef6fd;
+    border-radius: var(--r-pill);
+    padding: 4px;
+    margin-bottom: 14px;
+    border: 2px solid var(--border);
+}
+
+.mode-btn {
+    flex: 1;
+    padding: 10px 0;
+    border: none;
+    background: transparent;
+    color: var(--text-2);
+    font-family: inherit;
+    font-size: 0.88rem;
+    font-weight: 800;
+    cursor: pointer;
+    border-radius: var(--r-pill);
+    transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.mode-btn.active {
+    background: #ffffff;
+    color: var(--dora-blue-dark);
+    box-shadow: 0 3px 8px rgba(0, 159, 232, 0.2);
+}
+
+.stepper-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px;
+}
+
+.stepper-btn {
+    flex-shrink: 0;
+    min-width: 44px;
+    height: 44px;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--border);
+    background: #ffffff;
+    color: var(--dora-blue-dark);
+    border-radius: var(--r-sm);
+    font-family: inherit;
+    font-size: 0.88rem;
+    font-weight: 900;
+    cursor: pointer;
+    transition: all 0.15s;
+    box-shadow: 0 3px 0 var(--border);
+}
+
+.stepper-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 1px 0 var(--border);
+    background: var(--dora-blue-light);
+}
+
+.stepper-input {
+    flex: 1;
+    height: 44px;
+    text-align: center;
+    background: #ffffff;
+    border: 2px solid var(--border);
+    border-radius: var(--r-sm);
+    color: var(--dora-blue-dark);
+    font-family: inherit;
+    font-size: 1.05rem;
+    font-weight: 900;
+    outline: none;
+}
+
+.bomber-device-info {
+    padding: 12px 16px;
+    background: var(--dora-blue-light);
+    border-radius: var(--r-sm);
+    margin-bottom: 8px;
+    border: 1px solid rgba(0, 159, 232, 0.2);
+}
+
+.bomber-device-info span:first-child {
+    display: block;
+    font-size: 0.92rem;
+    font-weight: 800;
+    color: var(--dora-blue-dark);
+}
+
+.bomber-hint {
+    display: block;
+    font-size: 0.68rem;
+    color: var(--text-2);
+    margin-top: 2px;
+}
+
+.bomber-launch {
+    background: linear-gradient(135deg, var(--dora-red), #e52b3c) !important;
+    color: #ffffff !important;
+    border: 3px solid var(--dora-red-dark) !important;
+    box-shadow: 0 5px 0 var(--dora-red-dark), 0 10px 24px rgba(255, 51, 68, 0.35) !important;
+}
+
+.stop-btn {
+    width: 100%;
+    padding: 15px 20px;
+    margin-top: 10px;
+    background: #ffffff;
+    color: var(--dora-red);
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 900;
+    border: 2px solid var(--dora-red);
+    border-radius: var(--r-md);
+    cursor: pointer;
+    transition: all 0.18s;
+    box-shadow: 0 4px 0 var(--dora-red-dark);
+}
+
+.stop-btn:active {
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 var(--dora-red-dark);
+    background: var(--dora-red-light);
+}
+
+.bomber-log {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    max-height: 280px;
+    overflow-y: auto;
+    padding-bottom: 16px;
+}
+
+.log-entry {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 12px;
+    background: #ffffff;
+    border-radius: var(--r-sm);
+    font-size: 0.75rem;
+    font-weight: 700;
+    border: 1px solid var(--border);
+    animation: cartoonBounceUp 0.15s ease-out;
+}
+
+.log-entry.log-success {
+    border-left: 4px solid var(--dora-green);
+    color: var(--text);
+}
+
+.log-entry.log-fail {
+    border-left: 4px solid var(--dora-red);
+    color: var(--dora-red);
+}
+
+.log-entry .log-num {
+    font-weight: 900;
+    color: var(--dora-blue);
+    min-width: 28px;
+}
+
+.log-entry .log-device {
+    color: var(--text-2);
+    font-size: 0.68rem;
+}
+
+/* ==========================================================================
+   EMPTY STATE — Playful Doraemon Illustration
+   ========================================================================== */
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 44px 20px;
+    text-align: center;
+    color: var(--text-3);
+    background: #ffffff;
+    border: 2.5px dashed var(--border);
+    border-radius: var(--r-lg);
+}
+
+.empty-state svg {
+    color: var(--dora-blue);
+    opacity: 0.5;
+    margin-bottom: 8px;
+    animation: floatClouds 6s ease-in-out infinite alternate;
+}
+
+.empty-state p {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--dora-blue-dark);
+    margin: 8px 0 3px;
+}
+
+.empty-state span {
+    font-size: 0.76rem;
+    color: var(--text-3);
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   BOTTOM NAV — Doraemon Blue & Red Collar Navigation Bar
+   ========================================================================== */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: stretch;
+    background: #ffffff;
+    border-top: 4px solid var(--dora-red);
+    padding-bottom: var(--safe-bottom);
+    height: calc(var(--nav-height) + var(--safe-bottom));
+    box-shadow: 0 -8px 24px rgba(0, 159, 232, 0.14);
+}
+
+.nav-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 8px 0 6px;
+    border: none;
+    background: none;
+    color: var(--text-3);
+    font-family: inherit;
+    font-size: 0.68rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+}
+
+.nav-item:active {
+    transform: scale(0.92);
+}
+
+.nav-item svg {
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), stroke 0.2s;
+}
+
+.nav-item.active {
+    color: var(--dora-blue-dark);
+}
+
+.nav-item.active svg {
+    stroke: var(--dora-blue);
+    transform: translateY(-4px) scale(1.15);
+    filter: drop-shadow(0 4px 6px rgba(0, 159, 232, 0.3));
+}
+
+.nav-item.active::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    width: 28px;
+    height: 4px;
+    background: var(--dora-yellow);
+    border-radius: 0 0 6px 6px;
+    box-shadow: 0 2px 6px rgba(255, 204, 0, 0.6);
+}
+
+/* ==========================================================================
+   SERVER SELECTION MODAL — Styled as the ANYWHERE DOOR (どこでもドア)
+   ========================================================================== */
+.server-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(14, 40, 68, 0.65);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.server-modal.hidden {
+    display: none;
+}
+
+/* Anywhere Door Frame */
+.server-modal-content {
+    background: #ffffff;
+    border: 5px solid var(--dora-pink);
+    border-radius: var(--r-xl);
+    width: 100%;
+    max-width: 410px;
+    padding: 28px 24px;
+    box-shadow: 0 16px 48px rgba(255, 101, 163, 0.3), 0 0 0 4px #ffffff;
+    animation: doorOpen 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Anywhere door top bar and knob accent */
+.server-modal-content::before {
+    content: '🚪 DOKODEMO DOOR';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: var(--dora-pink);
+    color: #ffffff;
+    font-size: 0.68rem;
+    font-weight: 900;
+    text-align: center;
+    padding: 4px 0;
+    letter-spacing: 0.1em;
+}
+
+@keyframes doorOpen {
+    0% { transform: scale(0.85) translateY(20px); opacity: 0; }
+    100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.server-modal-header {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 22px;
+}
+
+.server-modal-header h2 {
+    font-size: 1.65rem;
+    font-weight: 900;
+    margin-bottom: 4px;
+    color: var(--dora-blue-dark);
+}
+
+.server-modal-header p {
+    font-size: 0.82rem;
+    color: var(--text-2);
+    font-weight: 600;
+}
+
+.server-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 58vh;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.server-btn {
+    background: #f7faff;
+    border: 2.5px solid var(--border);
+    border-radius: var(--r-md);
+    padding: 14px 16px;
+    text-align: left;
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 0 var(--border);
+}
+
+.server-btn:hover {
+    border-color: var(--dora-blue);
+    background: var(--dora-blue-light);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 var(--dora-blue-dark);
+}
+
+.server-btn:active {
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 var(--dora-blue-dark);
+}
+
+.server-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--r-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 14px;
+    flex-shrink: 0;
+    border: 2px solid #ffffff;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+.icon-emerald { background: var(--dora-green-light); color: var(--dora-green); }
+.icon-blue { background: var(--dora-blue-light); color: var(--dora-blue); }
+.icon-pink { background: var(--dora-pink-light); color: var(--dora-pink); }
+.icon-purple { background: #f3e8ff; color: #9333ea; }
+.icon-orange { background: #ffedd5; color: #ea580c; }
+.icon-red { background: var(--dora-red-light); color: var(--dora-red); }
+
+.server-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.server-name {
+    font-size: 1.05rem;
+    font-weight: 900;
+    letter-spacing: 0.3px;
+}
+
+.name-emerald { color: var(--dora-green); }
+.name-blue { color: var(--dora-blue-dark); }
+.name-pink { color: var(--dora-pink); }
+.name-purple { color: #9333ea; }
+.name-orange { color: #ea580c; }
+.name-red { color: var(--dora-red); }
+
+/* ==========================================================================
+   DEVICE DETAIL BOTTOM SHEET (4D Pocket Drawer)
+   ========================================================================== */
+.sheet-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: rgba(14, 40, 68, 0.6);
+    backdrop-filter: blur(8px);
+    display: none;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.sheet-overlay.active {
+    display: flex;
+    animation: sheetOverlayFadeIn 0.25s ease-out;
+}
+
+@keyframes sheetOverlayFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.sheet-container {
+    width: 100%;
+    max-height: 92vh;
+    max-height: 92dvh;
+    background: #ffffff;
+    border-top: 5px solid var(--dora-red);
+    border-radius: var(--r-xl) var(--r-xl) 0 0;
+    padding: 12px 18px calc(24px + var(--safe-bottom));
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    box-shadow: 0 -12px 40px rgba(0, 159, 232, 0.2);
+    animation: sheetPopUp 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+}
+
+@keyframes sheetPopUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+}
+
+.sheet-handle {
+    width: 44px;
+    height: 5px;
+    background: var(--border);
+    border-radius: var(--r-pill);
+    margin: 4px auto 14px;
+}
+
+.sheet-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+
+.sheet-header h2 {
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: var(--dora-blue-dark);
+}
+
+.sheet-close {
+    padding: 6px 16px;
+    background: var(--dora-blue-light);
+    border: 2px solid rgba(0, 159, 232, 0.3);
+    border-radius: var(--r-pill);
+    color: var(--dora-blue-dark);
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 2px 0 rgba(0, 159, 232, 0.3);
+}
+
+.sheet-close:active {
+    transform: translateY(2px);
+    box-shadow: none;
+}
+
+.sheet-device-id {
+    font-size: 0.72rem;
+    color: var(--text-3);
+    font-family: monospace;
+    margin-bottom: 12px;
+    word-break: break-all;
+    background: #f4f8fc;
+    padding: 4px 8px;
+    border-radius: var(--r-xs);
+    border: 1px dashed var(--border);
+}
+
+.sheet-info {
+    padding: 12px 14px;
+    background: var(--dora-blue-light);
+    border-radius: var(--r-sm);
+    font-size: 0.78rem;
+    color: var(--text);
+    margin-bottom: 14px;
+    line-height: 1.5;
+    word-break: break-word;
+    border: 1px solid rgba(0, 159, 232, 0.2);
+}
+
+.sheet-section {
+    margin-bottom: 18px;
+    padding-top: 14px;
+    border-top: 2px dashed var(--border);
+}
+
+.sheet-section h3 {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--dora-blue-dark);
+    margin-bottom: 10px;
+}
+
+.sheet-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.sheet-sms-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 300px;
+    overflow-y: auto;
+    margin-top: 10px;
+}
+
+.fwd-status {
+    font-size: 0.76rem;
+    color: var(--dora-green);
+    margin-top: 8px;
+    font-weight: 800;
+}
+
+/* ==========================================================================
+   TOAST NOTIFICATIONS — Cartoon Speech Popups
+   ========================================================================== */
+.toast-container {
+    position: fixed;
+    top: calc(var(--status-height) + var(--safe-top) + 8px);
+    left: 14px;
+    right: 14px;
+    z-index: 300;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    pointer-events: none;
+}
+
+.toast {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 18px;
+    background: #ffffff;
+    border: 2.5px solid var(--border);
+    border-radius: var(--r-md);
+    font-size: 0.88rem;
+    font-weight: 800;
+    color: var(--text);
+    box-shadow: var(--shadow-pop);
+    animation: toastBounce 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    pointer-events: auto;
+}
+
+.toast.exit {
+    animation: toastPopOut 0.25s ease-in forwards;
+}
+
+@keyframes toastBounce {
+    from { opacity: 0; transform: translateY(-20px) scale(0.9); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes toastPopOut {
+    to { opacity: 0; transform: translateY(-20px) scale(0.9); }
+}
+
+.toast-icon {
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.toast-success {
+    border-color: var(--dora-green);
+    border-left: 6px solid var(--dora-green);
+}
+
+.toast-error {
+    border-color: var(--dora-red);
+    border-left: 6px solid var(--dora-red);
+}
+
+.toast-info {
+    border-color: var(--dora-blue);
+    border-left: 6px solid var(--dora-blue);
+}
+
+.toast-warning {
+    border-color: var(--dora-yellow);
+    border-left: 6px solid var(--dora-yellow-dark);
+}
+
+/* ==========================================================================
+   SPINNER & SCROLLBAR
+   ========================================================================== */
+.spinner {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 3px solid rgba(0, 159, 232, 0.25);
+    border-top-color: var(--dora-blue);
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--dora-blue-sky);
+    border-radius: var(--r-pill);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--dora-blue);
+}
